@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Statistic} from "antd";
-import {ButtonUI} from "./CardUI";
+import { Statistic } from "antd";
+import { ButtonUI} from "./CardUI";
 
 export const StyledItem = styled.section`
   display: flex;
@@ -29,10 +29,6 @@ export const TagContainer = styled.div`
   margin-top: 20px;
   margin-left: 30px;
 `;
-// export const DividerUI = styled(Divider)`
-//   margin-top: 5px;
-//   margin-bottom: 10px;
-// `;
 
 export const NameUI = styled.h3`
   display: inline;
@@ -44,13 +40,13 @@ export const NameUI = styled.h3`
 
 
 export const DescriptionUI = styled.p`
-  font-size: 14px;
+font-size: 14px;
   color: black;
   padding-top: 7px;
   max-width: 600px;
 `;
 
-export const OptionTextStyled = styled.h3`
+export const OptionTextUI = styled.h3`
   display: inline-block;
   font-size: 18px;
   color: black;
@@ -60,7 +56,8 @@ export const OptionTextStyled = styled.h3`
 `;
 
 
-export const StatisticStyled = styled(Statistic)`
+
+export const StatisticUI = styled(Statistic)`
   margin-right: 50px;
 `;
 
@@ -83,4 +80,5 @@ export const ButtonItemUI = styled(ButtonUI)`
   margin-right: 30px;
   margin-bottom: 20px;
 `;
+
 

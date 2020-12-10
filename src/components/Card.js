@@ -17,11 +17,11 @@ const Card = ({hockeypuck}) => {
         <div>
             <CardUI
                 hoverable
-                cover={<CardImage alt="Hockeypuck" src={hockeypuck.image}/>}
+                cover={<CardImage alt="COMING SOON" src={hockeypuck.imageSrc}/>}
             >
                 <Footer>
                     <MetaUI title={hockeypuck.name}/>
-                    <TextUI>Price: {hockeypuck.priceInUAH} ₴</TextUI>
+                    <TextUI>Price: {hockeypuck.price_in_uah} ₴</TextUI>
                     <AllInfo hockeypuck={hockeypuck}/>
                 </Footer>
             </CardUI>
@@ -39,8 +39,8 @@ const AllInfo = ({hockeypuck}) => {
     return (
         <div>
             <ButtonUI onClick={() => setVisible(true)}>View More</ButtonUI>
-            <MoreInfo height={visible}>
-                <MetaUI description={description(hockeypuck)}/>
+            <MoreInfo height={visible ? 1 : 0}>
+                <MetaUI name={hockeypuck.name} description={description(hockeypuck)}/>
                 <ButtonUI
                     onClick={() => {
                         history.push(`/item?id=${hockeypuck.id}`);
