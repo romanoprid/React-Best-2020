@@ -5,22 +5,22 @@ import hockey4 from "../images/red.jpg";
 
 
 export const setImages = (initialData) => {
-  initialData.forEach((item) => {
-    switch (parseInt(item.image)) {
-      case 1:
-        item.imageSrc = hockey1;
-        break;
-      case 2:
-        item.imageSrc = hockey2;
-        break;
-      case 3:
-        item.imageSrc = hockey3;
-        break;
-      case 4:
-        item.imageSrc = hockey4;
-        break;
-    }
-  });
-  console.log("checking image", initialData);
-  return initialData;
+    initialData.forEach((item) => {
+        switch (parseInt(item.image)) {
+            case 1:
+                item.imageSrc = hockey1;
+                break;
+            case 2:
+                item.imageSrc = hockey2;
+                break;
+            case 3:
+                item.imageSrc = hockey3;
+                break;
+            case 4:
+                item.imageSrc = hockey4;
+                break;
+        }
+    });
+    console.log("checking image", initialData);
+    return initialData;
 };

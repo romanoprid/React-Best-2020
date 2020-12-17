@@ -20,7 +20,7 @@ const Card = ({hockeypuck}) => {
                 cover={<CardImage alt="COMING SOON" src={hockeypuck.imageSrc}/>}
             >
                 <Footer>
-                    <MetaUI title={hockeypuck.name}/>
+                    <MetaUI title={hockeypuck.name} description={hockeypuck.description}/>
                     <TextUI>Price: {hockeypuck.price_in_uah} ₴</TextUI>
                     <AllInfo hockeypuck={hockeypuck}/>
                 </Footer>
@@ -37,10 +37,10 @@ const AllInfo = ({hockeypuck}) => {
     let history = useHistory();
 
     return (
-        <div>
+        <React.Fragment>
             <ButtonUI onClick={() => setVisible(true)}>View More</ButtonUI>
             <MoreInfo height={visible ? 1 : 0}>
-                <MetaUI name={hockeypuck.name} description={description(hockeypuck)}/>
+                <MetaUI title={hockeypuck.title} description={description(hockeypuck)}/>
                 <ButtonUI
                     onClick={() => {
                         history.push(`/item?id=${hockeypuck.id}`);
@@ -56,6 +56,6 @@ const AllInfo = ({hockeypuck}) => {
                     View Less
                 </ButtonLessUI>
             </MoreInfo>
-        </div>
+        </React.Fragment>
     );
 };

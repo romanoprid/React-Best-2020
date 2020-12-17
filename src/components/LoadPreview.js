@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
 import LoadingElement from "./Loading";
-import { CenterContainer, MessegeInfo } from "../styles/LoadPreviewUI";
+import { CenterContainer, MessegeInfo } from "../styles/LoadPreview.UI";
 
 const LoadPrewiew = ({
-  name = "Nothing to show  🙁",
+  title = "Not Found",
+  description = "Please try again later",
 }) => {
   const [load, setLoad] = useState(false);
   useEffect(() => {
     let myTimeout = setTimeout(() => {
       setLoad(true);
     }, 5000);
-    console.log(load);
     return function cleanUp() {
       clearTimeout(myTimeout);
     };
@@ -20,7 +20,8 @@ const LoadPrewiew = ({
   }
   return (
     <CenterContainer>
-      <MessegeInfo>{name}</MessegeInfo>
+      <MessegeInfo>{title}</MessegeInfo>
+      <MessegeInfo>{description}</MessegeInfo>
     </CenterContainer>
   );
 };

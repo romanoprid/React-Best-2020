@@ -1,7 +1,7 @@
 import React from "react";
+import {Flipper, Flipped} from "react-flip-toolkit";
 import {EntityContainer} from "../styles/ContainerItemUI";
 import Card from "./Card";
-import {Flipper, Flipped} from "react-flip-toolkit";
 
 const ContainerItem = ({goods}) => {
     return (
