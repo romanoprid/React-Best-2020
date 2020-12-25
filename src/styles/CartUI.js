@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ButtonUI } from "./CardUI";
+import {ButtonUI} from "./CardUI";
+
 
 export const CartContainer = styled.section`
   width:100%
@@ -18,15 +19,6 @@ export const TitleStyled = styled.h1`
   text-align: center;
 `;
 
-export const TotalPriceSyled = styled.p`
-  font-size: 20px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 30px;
-  margin-right: 120px;
-  color: #00000;
-  text-align: end;
-`;
 
 export const Footer = styled.div`
   display: flex;

@@ -8,7 +8,7 @@ import { fetchData } from "./AlmostCRUD";
 import { Provider } from "react-redux";
 import store from "./components/redux/Store";
 
-library.add(faShoppingCart, faArrowLeft);
+// library.add(faShoppingCart, faArrowLeft);
 
 function App() {
   const [source, setSource] = useState([]);

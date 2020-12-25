@@ -1,6 +1,7 @@
 import React from "react";
 import {Container, CircleStyled} from "../styles/LoadingUI";
 
+
 const LoadingElement = () => {
     return (
         <Container>

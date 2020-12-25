@@ -1,9 +1,14 @@
-import { createAdded, deleteAdded, updateAdded } from "./Constants";
+import {
+  createAdded,
+  deleteAdded,
+  resetAdded,
+  updateAdded,
+} from "./Constants";
 
 const changeItem = (state, action) => {
   let orders = state.orders.slice();
   let foundIndex = orders.findIndex(
-      (element) => element.id === action.payload.id
+    (element) => element.id === action.payload.id
   );
   orders[foundIndex] = action.payload;
   return orders;
@@ -40,7 +45,7 @@ const reduxUtils = (state = {}, action) => {
       };
     case createAdded:
       let foundIndex = state.orders.findIndex(
-          (element) => element.id === action.payload.id
+        (element) => element.id === action.payload.id
       );
       if (foundIndex !== -1) {
         orders = changeItem(state, action);
@@ -56,6 +61,11 @@ const reduxUtils = (state = {}, action) => {
       return {
         orders,
         totalPrice: calculatePrice(orders),
+      };
+    case resetAdded:
+      return {
+        orders: [],
+        totalPrice: 0,
       };
     default:
       return state;

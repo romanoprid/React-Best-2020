@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import LoadingElement from "./Loading";
-import { CenterContainer, MessegeInfo } from "../styles/LoadPreview.UI";
+import {CenterContainer, MessegeInfo} from "../styles/LoadPreviewUI";
+
 
 const LoadPrewiew = ({
-  title = "Not Found",
-  description = "Please try again later",
-}) => {
+                         name = "Nothing to show  🙁"
+                     }) => {
   const [load, setLoad] = useState(false);
   useEffect(() => {
     let myTimeout = setTimeout(() => {
@@ -19,10 +19,9 @@ const LoadPrewiew = ({
     return <LoadingElement />;
   }
   return (
-    <CenterContainer>
-      <MessegeInfo>{title}</MessegeInfo>
-      <MessegeInfo>{description}</MessegeInfo>
-    </CenterContainer>
+      <CenterContainer>
+        <MessegeInfo>{name}</MessegeInfo>
+      </CenterContainer>
   );
 };
 

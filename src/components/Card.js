@@ -12,6 +12,7 @@ import {
 import {useHistory} from "react-router-dom";
 import description from "./UtilsInfo";
 
+
 const Card = ({hockeypuck}) => {
     return (
         <div>

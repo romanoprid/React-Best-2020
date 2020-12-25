@@ -1,18 +1,15 @@
 import React from "react";
-import {
-    BottomPanel,
-    TextCopyRight,
+import {BottomPanel, TextCopyRight} from "../styles/FooterUI";
 
-} from "../styles/FooterUI";
 
 const Footer = () => {
 
 
-    return (
-        <BottomPanel>
-            <TextCopyRight>@SportOP 2020</TextCopyRight>
-        </BottomPanel>
-    );
+  return (
+      <BottomPanel>
+        <TextCopyRight>@SportOP 2020</TextCopyRight>
+      </BottomPanel>
+  );
 };
 
 export default Footer;

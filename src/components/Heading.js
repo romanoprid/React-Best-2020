@@ -1,6 +1,7 @@
 import React from "react";
-import {FunctionalMenu, Header, HeadingContainer} from "../styles/HeadingUI";
+
 import Clock from "./HeadingImage";
+import {FunctionalMenu, Header, HeadingContainer} from "../styles/HeadingUI";
 
 
 const Heading = () => {

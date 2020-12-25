@@ -17,7 +17,6 @@ export const ContainerCards = styled.section`
 `;
 
 export const TitleUI = styled.h1`
-  font-family: "OpenSans-Light";
   font-size: 41px;
   letter-spacing: 13px;
   text-transform: uppercase;

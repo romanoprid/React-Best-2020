@@ -1,74 +1,85 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import {
-    CardUI,
-    MinusStyled,
-    PlusStyled,
-    CardImage,
-    TextStyled,
-    StyledCounter,
-    Cross,
-    ButtonSmall,
-} from "../styles/ReservedItemUI";
-import {useDispatch} from "react-redux";
+  CardUI,
+  MinusUI,
+  PlusUI,
+  CardImage,
+  TextUI,
+  StyledCounter,
+  Cross,
+  ButtonSmall,
+} from "../styles/AddedCardUI";
+import { useDispatch } from "react-redux";
 import {
-    deleteItem,
-    updateItem,
+  deleteItem,
+  updateItem,
 } from "./redux/Action";
-import {faTimes} from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useHistory } from "react-router-dom";
 
-const AddedCard = ({value}) => {
-    const [item, setElement] = useState(value);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        setElement(value);
-    }, [value]);
-    const reduceItemNumber = () => {
-        if (item.number === 1) {
-            return;
-        }
-        const newElement = {
-            ...item,
-            number: item.number - 1,
-            price_in_uah: (item.price_in_uah / item.number) * (item.number - 1),
-        };
-        setElement(newElement);
-        dispatch(updateItem(newElement));
+const AddedCard = ({ value }) => {
+  const [element, setElement] = useState(value);
+  const dispatch = useDispatch();
+  let history = useHistory();
+
+  useEffect(() => {
+    setElement(value);
+  }, [value]);
+
+  const reduceItemNumber = (event) => {
+    event.stopPropagation();
+    if (element.number === 1) {
+      return;
+    }
+    const newElement = {
+      ...element,
+      number: element.number - 1,
+      price_in_uah: (element.price_in_uah / element.number) * (element.number - 1),
     };
+    setElement(newElement);
+    dispatch(updateItem(newElement));
+  };
 
-    const increaseItemNumber = () => {
-        if (item.number === 20) {
-            return;
-        }
-        const newElement = {
-            ...item,
-            number: item.number + 1,
-            price_in_uah: (item.price_in_uah / item.number) * (item.number + 1),
-        };
-        setElement(newElement);
-        dispatch(updateItem(newElement));
+  const increaseItemNumber = (event) => {
+    event.stopPropagation();
+    if (element.number === 20) {
+      return;
+    }
+    const newElement = {
+      ...element,
+      number: element.number + 1,
+      price_in_uah: (element.price_in_uah / element.number) * (element.number + 1),
     };
+    setElement(newElement);
+    dispatch(updateItem(newElement));
+  };
 
-    const removeElement = () => {
-        dispatch(deleteItem(item));
-    };
+  const removeElement = (event) => {
+    event.stopPropagation();
+    dispatch(deleteItem(element));
+  };
 
-    return (
-        <CardUI>
-            <Cross onClick={removeElement} icon={faTimes}/>
-            <CardImage alt="COMING SOON" src={item.imageSrc}/>
-            <TextStyled>{item.name}</TextStyled>
-            <StyledCounter>
-                <ButtonSmall onClick={increaseItemNumber}>
-                    <PlusStyled/>
-                </ButtonSmall>
-                <TextStyled>{item.number}</TextStyled>
-                <ButtonSmall>
-                    <MinusStyled onClick={reduceItemNumber}/>
-                </ButtonSmall>
-            </StyledCounter>
-            <TextStyled>{item.price_in_uah} ₴</TextStyled>
-        </CardUI>
-    );
+  const goToItem = () => {
+    history.push(`/item?id=${element.id}`);
+  };
+
+  return (
+    <CardUI onClick={goToItem}>
+      <Cross onClick={removeElement} icon={faTimes} />
+      <CardImage alt="COMING SOON" src={element.imageSrc} />
+      <TextUI>{element.name}</TextUI>
+      <StyledCounter>
+        <ButtonSmall onClick={increaseItemNumber}>
+          <PlusUI />
+        </ButtonSmall>
+        <TextUI>{element.number}</TextUI>
+        <ButtonSmall>
+          <MinusUI onClick={reduceItemNumber} />
+        </ButtonSmall>
+      </StyledCounter>
+      <TextUI>{element.price_in_uah} UAH</TextUI>
+    </CardUI>
+  );
 };
 
 export default AddedCard;
